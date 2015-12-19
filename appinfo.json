@@ -1,0 +1,34 @@
+{
+    "appKeys": {
+        "KEY_CITY": 2,
+        "KEY_CONDITIONS": 1,
+        "KEY_TEMPERATURE": 0
+    },
+    "capabilities": [
+        "location"
+    ],
+    "companyName": "ThatOneBehrendt",
+    "longName": "Ano Weather",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "fonts/OpenSans-Regular.ttf",
+                "name": "WEATHER_FONT_12",
+                "targetPlatforms": null,
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "Ano Weather",
+    "targetPlatforms": [
+        "basalt",
+        "chalk"
+    ],
+    "uuid": "1f9aa499-409c-4dc7-bf29-0da9a8132926",
+    "versionLabel": "1.2",
+    "watchapp": {
+        "watchface": true
+    }
+}
