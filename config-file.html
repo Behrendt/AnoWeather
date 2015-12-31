@@ -1,40 +1,104 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Ano Weather Settings</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+  </head>
+  <body>
+    <div data-role="page" id="main">
+      <div data-role="header" class="jqm-header">
+        <h1>Ano Weather Settings</h1>
+      </div>
 
-<head>
-  <meta charset="utf-8">
-  <title>config-file</title>
-  <meta name="generator" content="Google Web Designer 1.5.3.1209">
-  <style type="text/css" id="gwd-text-style">
-    p {
-      margin: 0px;
-    }
-    h1 {
-      margin: 0px;
-    }
-    h2 {
-      margin: 0px;
-    }
-    h3 {
-      margin: 0px;
-    }
-  </style>
-  <style type="text/css">
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0px;
-    }
-    body {
-      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-      transform-style: preserve-3d;
-      background-color: transparent;
-    }
-  </style>
-</head>
+      <div data-role="content">
 
-<body>
-  test
-</body>
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d" data-mini="false">
+    <!<div data-role="collapsible">
+        <h3></h3>
 
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    <legend>Temperature type</legend>
+        <input name="key0" id="key0-0" data-type="int" value="0" checked="checked" type="radio">
+        <label for="key0-0">Celsius</label>
+        <input name="key0" id="key0-1" data-type="int" value="1" type="radio">
+        <label for="key0-1">Fahrenheit</label>
+</fieldset>
+
+</div>
+<br />
+        <div class="ui-body ui-body-c">
+          <fieldset class="ui-grid-a">
+              <div class="ui-block-b"><button type="submit" data-theme="a" id="b-submit">Save</button></div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+   <script>
+	
+  //Setup to allow easy adding more options later
+  function saveOptions() {
+    var invertSelect = document.getElementsByName("key0");
+ 
+    var options = {
+      "invert": document.getElementById('key0-0').value
+	  }
+	 
+      var options2 = {
+	  "invert": document.getElementById('key0-1').value
+	  }
+	
+     //console.log("Option: " + invertSelect.options[invertSelect.selectedIndex].value);
+    if (document.getElementById('key0-0').checked)
+	return options;
+	else if (document.getElementById('key0-1').checked)
+	return options2;
+  };
+ 
+ var urlParams;
+(window.onpopstate = function () {
+    var match,
+        pl     = /\+/g,  // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+        query  = window.location.search.substring(1);
+
+    urlParams = {};
+    while (match = search.exec(query))
+       urlParams[decode(match[1])] = decode(match[2]);
+})();
+
+//alert(urlParams["CORF"]); 
+
+function LoadedPage()
+{
+	console.log("Loading");
+	var invertSelect = document.getElementsByName("key0");
+	
+	if(urlParams["CORF"] == '0')
+		document.getElementById('key0-0').checked = true;
+	else if(urlParams["CORF"] == '1')
+		document.getElementById('key0-1').checked = true;
+	
+	invertSelect.selectedIndex = urlParams["CORF"];
+};
+
+window.onload = LoadedPage();
+
+ 
+  var submitButton = document.getElementById("b-submit").addEventListener("click", 
+    function() {
+      console.log("Submit");
+ 
+      var options = saveOptions();
+      var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
+       //location.href = 'pebblejs://close#success';
+      document.location.href = location;
+    }, 
+  false);
+</script>
+  </body>
 </html>
