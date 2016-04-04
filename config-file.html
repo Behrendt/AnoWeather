@@ -51,7 +51,7 @@
   function saveOptions() {
     var invertSelect = document.getElementsByName("key0");
  
-    var options = {"invert": invt, "colour": colo}
+    //var options = {"invert": invt, "colour": colo}
 	 
       //var options2 = {"invert": document.getElementById('key0-1').value
 	
@@ -69,6 +69,7 @@
     if (document.getElementById('key1-1').checked){
 	colo = document.getElementById('key1-1').value;}
 	
+	var options = {"invert": invt, "colour": colo}	
 	return options;
   };
   
