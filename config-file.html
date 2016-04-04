@@ -106,13 +106,20 @@ function LoadedPage()
 {
 	console.log("Loading");
 	var invertSelect = document.getElementsByName("key0");
+	var colSelect = document.getElementsByName("key1");
 	
 	if(urlParams["CORF"] == '0')
 		document.getElementById('key0-0').checked = true;
 	else if(urlParams["CORF"] == '1')
 		document.getElementById('key0-1').checked = true;
+		
+	if(urlParams["COL"] == '0')
+		document.getElementById('key1-0').checked = true;
+	else if(urlParams["COL"] == '1')
+		document.getElementById('key1-1').checked = true;	
 	
 	invertSelect.selectedIndex = urlParams["CORF"];
+	colSelect.slectedIndex = urlParams["COL"];
 };
 
 window.onload = LoadedPage();
