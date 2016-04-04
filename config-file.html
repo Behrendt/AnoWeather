@@ -120,8 +120,8 @@ window.onload = LoadedPage();
       console.log("Submit");
  
       var options = saveOptions();
-      var backcolour = saveColour():
-      var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
+      var backcolour = saveColour();
+      var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options)) + encodeURIComponent(JSON.stringify(options));
        //location.href = 'pebblejs://close#success';
       document.location.href = location;
     }, 
