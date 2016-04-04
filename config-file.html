@@ -51,15 +51,24 @@
   function saveOptions() {
     var invertSelect = document.getElementsByName("key0");
  
-    var options = {"invert": document.getElementById('key0-0').value
+    var options = {"invert": invt, "colour": = colo}
 	 
       var options2 = {"invert": document.getElementById('key0-1').value
 	
      //console.log("Option: " + invertSelect.options[invertSelect.selectedIndex].value);
+     var invt;
+     var colo;
     if (document.getElementById('key0-0').checked)
+	invt = document.getElementById('key0-0').value;
+    else if (document.getElementById('key0-1').checked)
+	invt = document.getElementById('key0-1').value;
+	
+    if (document.getElementById('key1-0').checked)
+	colo = document.getElementById('key1-0').value};
+   else if (document.getElementById('key1-1').checked)
+	colo = document.getElementById('key1-1').value};
+	
 	return options;
-	else if (document.getElementById('key0-1').checked)
-	return options2;
   };
   
   function saveColour() {
@@ -112,9 +121,9 @@ window.onload = LoadedPage();
       console.log("Submit");
  
       var options = saveOptions();
-      var backcolour = saveColour();
-      var final = options + ", " backcolour;
-      var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(final));// + encodeURIComponent(JSON.stringify(backcolour));
+      //var backcolour = saveColour();
+      //var final = options + ", " backcolour;
+      var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));// + encodeURIComponent(JSON.stringify(backcolour));
        //location.href = 'pebblejs://close#success';
       document.location.href = location;
     }, 
