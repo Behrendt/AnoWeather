@@ -58,15 +58,16 @@
      //console.log("Option: " + invertSelect.options[invertSelect.selectedIndex].value);
      var invt = null;
      var colo = null;
+     
     if (document.getElementById('key0-0').checked)
 	invt = document.getElementById('key0-0').value;
-    else if (document.getElementById('key0-1').checked)
+	else if (document.getElementById('key0-1').checked)
 	invt = document.getElementById('key0-1').value;
 	
     if (document.getElementById('key1-0').checked)
 	colo = document.getElementById('key1-0').value};
-   else if (document.getElementById('key1-1').checked)
-	colo = document.getElementById('key1-1').value};
+	else if (document.getElementById('key1-1').checked)
+	colo = document.getElementById('key1-1').value;
 	
 	return options;
   };
