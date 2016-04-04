@@ -59,7 +59,7 @@
 	  "invert": document.getElementById('key0-1').value
 	  }
 	
-     //console.log("Option: " + invertSelect.options[invertSelect.selectedIndex].value);
+     console.log("Option: " + invertSelect.options[invertSelect.selectedIndex].value);
     if (document.getElementById('key0-0').checked)
 	return options;
 	else if (document.getElementById('key0-1').checked)
@@ -77,7 +77,7 @@
 	  "Colour": document.getElementById('key1-1').value
 	  }
 	
-     //console.log("Option: " + invertSelect.options[invertSelect.selectedIndex].value);
+     console.log("Colour: " + invertSelect.options[invertSelect.selectedIndex].value);
     if (document.getElementById('key1-0').checked)
 	return options;
 	else if (document.getElementById('key1-1').checked)
@@ -120,7 +120,7 @@ window.onload = LoadedPage();
       console.log("Submit");
  
       var options = saveOptions();
-      //var backcolour = saveColour():
+      var backcolour = saveColour():
       var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
        //location.href = 'pebblejs://close#success';
       document.location.href = location;
