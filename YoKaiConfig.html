@@ -86,9 +86,8 @@ function LoadedPage()
 	if(urlParams["COL"] == '0')
 		document.getElementById('key1-0').checked = true;
 	else if(urlParams["COL"] == '1')
-		document.getElementById('key1-1').checked = true;	
-	
-	invertSelect.selectedIndex = urlParams["CORF"];
+		document.getElementById('key1-1').checked = true;
+
 	colSelect.slectedIndex = urlParams["COL"];
 };
 window.onload = LoadedPage();
