@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" />
     <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>
+    <!--<script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.js"></script>-->
   </head>
   <body>
     <div data-role="page" id="main">
@@ -34,11 +34,73 @@
         <label for="key1-0">White</label>
         <input name="key1" id="key1-1" data-type="int" value="1" type="radio">
         <label for="key1-1">Black</label>	
-		<input name="key1" id="key1-2" data-type="int" value="2" type="radio">
+		<input name="key1" id="key1-2" data-type="int" value="2" type="radio" onclick="document.getElementById('custom').removeAttribute('disabled')">
 		<label for="key1-2">Night Shift (Black between 6pm and 6am)</label>
+		<input name="StartTime" id="StartTime" type="time">
 </fieldset>
-
 </div>
+<!-- <select id="StartTime" name="StartTime" disabled>
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+				<option>10</option>
+				<option>11</option>
+				<option>12</option>
+				<option>13</option>
+				<option>14</option>
+				<option>15</option>
+				<option>16</option>
+				<option>17</option>
+				<option>18</option>
+				<option>19</option>
+				<option>20</option>
+				<option>21</option>
+				<option>22</option>
+				<op -->tion>23</option>
+		</select>​​​​​​​​​​​
+<!--<select id="StarTime" name="charstype" disabled>
+		<option>0</option>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		<option>6</option>
+		<option>7</option>
+		<option>8</option>
+		<option>9</option>
+		<option>10</option>
+		<option>11</option>
+		<option>12</option>
+		<option>13</option>
+		<option>14</option>
+		<option>15</option>
+		<option>16</option>
+		<option>17</option>
+		<option>18</option>
+		<option>19</option>
+		<option>20</option>
+		<option>21</option>
+		<option>22</option>
+		<option>23</option>
+</select>​​​​​​​​​​​-->
+
+ <input onclick="document.getElementById('custom').removeAttribute('disabled')" type="radio" name="type">wanna custom url?
+  <input type="text" name="custom" id="custom" placeholder="should be 5 characters at least" disabled>
+  <br><br>
+  <input onclick="document.getElementById('custom').disabled = true; document.getElementById('charstype').disabled = false;" type="radio" name="type" value="customurl">random?
+  <select name="charstype" id="charstype" disabled="disabled">
+                <option>Letters</option>
+                <option>Number</option>
+  </select>
+  
 <br />
         <div class="ui-body ui-body-c">
           <fieldset class="ui-grid-a">
