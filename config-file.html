@@ -17,7 +17,6 @@
       <div data-role="content">
 
 <div data-role="collapsible-set" data-theme="c" data-content-theme="d" data-mini="false">
-    <!<div data-role="collapsible">
         <h3></h3>
 
 <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
@@ -33,10 +32,13 @@
         <input name="key1" id="key1-0" data-type="int" value="0" checked="checked" type="radio">
         <label for="key1-0">White</label>
         <input name="key1" id="key1-1" data-type="int" value="1" type="radio">
-        <label for="key1-1">Black</label>
+        <label for="key1-1">Black</label>	
+		<input name="key1" id="key1-2" data-type="int" value="2" type="radio">
+		<label for="key1-2">Night Shift (Black between 6pm and 6am)</label>
+	
 </fieldset>
-
 </div>
+<label>Please report all bugs using the "Contact developer" feature</label>
 <br />
         <div class="ui-body ui-body-c">
           <fieldset class="ui-grid-a">
@@ -66,8 +68,10 @@
 	
     if (document.getElementById('key1-0').checked){
 	colo = document.getElementById('key1-0').value;}
-    if (document.getElementById('key1-1').checked){
+    else if (document.getElementById('key1-1').checked){
 	colo = document.getElementById('key1-1').value;}
+	else if (document.getElementById('key1-2').checked){
+	colo = document.getElementById('key1-2').value;}
 	
 	var options = {"invert": invt, "colour": colo}	
 	return options;
@@ -94,14 +98,11 @@
         search = /([^&=]+)=?([^&]*)/g,
         decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
         query  = window.location.search.substring(1);
-
     urlParams = {};
     while (match = search.exec(query))
        urlParams[decode(match[1])] = decode(match[2]);
 })();
-
 //alert(urlParams["CORF"]); 
-
 function LoadedPage()
 {
 	console.log("Loading");
@@ -117,13 +118,13 @@ function LoadedPage()
 		document.getElementById('key1-0').checked = true;
 	else if(urlParams["COL"] == '1')
 		document.getElementById('key1-1').checked = true;	
+	else if(urlParams["COL"] == '2')
+		document.getElementById('key1-2').checked = true;	
 	
 	invertSelect.selectedIndex = urlParams["CORF"];
 	colSelect.slectedIndex = urlParams["COL"];
 };
-
 window.onload = LoadedPage();
-
  
   var submitButton = document.getElementById("b-submit").addEventListener("click", 
     function() {
