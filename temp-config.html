@@ -37,67 +37,18 @@
 		<label for="key1-2">Night Shift (Black between 6pm and 6am)</label>
 	
 </fieldset>
-<!--<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
-	<div data-role="collapsible">
-	<legend>Night Mode Times</legend>
-	<label>Start Time</label>
-	<select name="StartTime" id="key2">
-		<option>0</option>
-		<option>1</option>
-		<option>2</option>
-		<option>3</option>
-		<option>4</option>
-		<option>5</option>
-		<option>6</option>
-		<option>7</option>
-		<option>8</option>
-		<option>9</option>
-		<option>10</option>
-		<option>11</option>
-		<option>12</option>
-		<option>13</option>
-		<option>14</option>
-		<option>15</option>
-		<option>16</option>
-		<option>17</option>
-		<option>18</option>
-		<option>19</option>
-		<option>20</option>
-		<option>21</option>
-		<option>22</option>
-		<option>23</option>
-	</select>
-	<label>End Time</label>
-	<select name="EndTime" id="key3">
-		<option>0</option>
-		<option>1</option>
-		<option>2</option>
-		<option>3</option>
-		<option>4</option>
-		<option>5</option>
-		<option>6</option>
-		<option>7</option>
-		<option>8</option>
-		<option>9</option>
-		<option>10</option>
-		<option>11</option>
-		<option>12</option>
-		<option>13</option>
-		<option>14</option>
-		<option>15</option>
-		<option>16</option>
-		<option>17</option>
-		<option>18</option>
-		<option>19</option>
-		<option>20</option>
-		<option>21</option>
-		<option>22</option>
-		<option>23</option>
-	</select>
-	</div>
-</fieldset>-->
+<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+<legend>Show step count hand</legend>
+		<input name="key2" id="key2-0" data-type="int" value="1" checked="checked" type="radio">
+        <label for="key2-0">Yes</label>
+        <input name="key2" id="key2-1" data-type="int" value="0" type="radio">
+        <label for="key2-1">No</label>
+		<br>Step Goal
+		<input name="key2" id="key2-2" data-type="int" type="number">
+		
+</fieldset>
 </div>
-
+<label>Please report all bugs using the "Contact developer" feature</label>
 <br />
         <div class="ui-body ui-body-c">
           <fieldset class="ui-grid-a">
@@ -119,7 +70,9 @@
      //console.log("Option: " + invertSelect.options[invertSelect.selectedIndex].value);
      var invt = null;
      var colo = null;
-     
+     var ShowStep = null;
+	 var StepGoal = null;
+	 
     if (document.getElementById('key0-0').checked){
 	invt = document.getElementById('key0-0').value;}
 	else if (document.getElementById('key0-1').checked){
@@ -132,7 +85,14 @@
 	else if (document.getElementById('key1-2').checked){
 	colo = document.getElementById('key1-2').value;}
 	
-	var options = {"invert": invt, "colour": colo}	
+	if (document.getElementById('key2-0').checked){
+	ShowStep = document.getElementById('key2-0').value;}
+    else if (document.getElementById('key2-1').checked){
+	ShowStep = document.getElementById('key2-1').value;}
+	
+	StepGoal = document.getElementById('key2-2').value
+	
+	var options = {"invert": invt, "colour": colo, "ShowStep": ShowStep, "StepGoal": StepGoal}	
 	return options;
   };
   
@@ -180,6 +140,14 @@ function LoadedPage()
 	else if(urlParams["COL"] == '2')
 		document.getElementById('key1-2').checked = true;	
 	
+	if(urlParams["SHOW"] == '0')
+		document.getElementById('key2-1').checked = true;
+	else if(urlParams["SHOW"] == '1')	
+	document.getElementById('key2-0').checked = true;
+	
+	if(urlParams["GOAL"] != null)
+		document.getElementById('key2-2').value = urlParams["GOAL"];
+		
 	invertSelect.selectedIndex = urlParams["CORF"];
 	colSelect.slectedIndex = urlParams["COL"];
 };
